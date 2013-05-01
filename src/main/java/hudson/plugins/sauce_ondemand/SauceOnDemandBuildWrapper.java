@@ -124,6 +124,8 @@ public class SauceOnDemandBuildWrapper extends BuildWrapper implements
 			this.webDriverBrowsers = seleniumInformation.getWebDriverBrowsers();
 		}
 		this.launchSauceConnectOnSlave = launchSauceConnectOnSlave;
+		if(System.getenv("environment") !=null && 
+				System.getenv("EXECUTION_ENVIRONMENT")!=null)
 		if (!System.getenv("environment").equalsIgnoreCase("PROD")
 				&& System.getenv("EXECUTION_ENVIRONMENT").equalsIgnoreCase(
 						"SAUCELABS")) {
