@@ -64,8 +64,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <systemPropertyVariables>
-                        <sauce.user>mayur_softcrylic</sauce.user>
-                        <access.key>1034911c-db71-4c8e-8e12-7831abf6adf7</access.key>
+                        <sauce.user>rossco_9_9</sauce.user>
+                        <access.key>44f0744c-1689-4418-af63-560303cbb37b</access.key>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
