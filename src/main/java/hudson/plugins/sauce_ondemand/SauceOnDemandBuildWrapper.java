@@ -124,32 +124,22 @@ public class SauceOnDemandBuildWrapper extends BuildWrapper implements
 			this.webDriverBrowsers = seleniumInformation.getWebDriverBrowsers();
 		}
 		this.launchSauceConnectOnSlave = launchSauceConnectOnSlave;
-		System.out.println("@SauceOnDemand Plugin: Reading environment variable!!!");
-		//TODO: Condition starts
-		/*
-		if(System.getenv("environment") !=null && 
-				System.getenv("EXECUTION_ENVIRONMENT")!=null)
-		if (!System.getenv("environment").equalsIgnoreCase("PROD")
-				&& System.getenv("EXECUTION_ENVIRONMENT").equalsIgnoreCase(
-						"SAUCELABS")) {
-			this.enableSauceConnect = true;
-			this.launchSauceConnectOnSlave = true;
-
-		}
-		*/
-		//TODO: Condition ends
 	}
 
 	@Override
 	public Environment setUp(final AbstractBuild build, Launcher launcher,
 			BuildListener listener) throws IOException, InterruptedException {
+		// TODO: Condition starts
 		listener.getLogger().println(
 				"Checking if have to start sauce connect!!");
-		if(System.getenv("environment") !=null && 
-				System.getenv("EXECUTION_ENVIRONMENT")!=null)
-		if (isEnableSauceConnect() && !System.getenv("environment").equalsIgnoreCase("PROD")
-				&& System.getenv("EXECUTION_ENVIRONMENT").equalsIgnoreCase(
-						"SAUCELABS")) {
+		if (System.getenv("environment") != null
+				&& System.getenv("EXECUTION_ENVIRONMENT") != null)
+			if (System.getenv("environment").equalsIgnoreCase("PROD")
+					|| !System.getenv("EXECUTION_ENVIRONMENT")
+							.equalsIgnoreCase("SAUCELABS"))
+				setEnableSauceConnect(false);
+		// TODO: Condition ends
+		if (isEnableSauceConnect()) {
 			if (launchSauceConnectOnSlave) {
 				listener.getLogger().println(
 						"Starting Sauce OnDemand SSH tunnel on slave node");
@@ -173,8 +163,7 @@ public class SauceOnDemandBuildWrapper extends BuildWrapper implements
 						listener, getPort());
 				tunnels = sauceConnectStarter.call();
 			}
-		}
-		else
+		} else
 			listener.getLogger().println(
 					"Not starting sauce connect as environment!!!");
 
