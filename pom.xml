@@ -7,14 +7,12 @@
     </parent>
 
     <artifactId>sauce-ondemand</artifactId>
-    <version>1.56</version>
+    <version>1.57-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Jenkins Sauce OnDemand plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/Sauce+OnDemand+Plugin</url>
 
     <scm>
-        <connection>scm:git:git://github.com/jenkinsci/sauce-ondemand-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:jenkinsci/sauce-ondemand-plugin.git</developerConnection>
     </scm>
 
     <distributionManagement>
@@ -66,8 +64,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <systemPropertyVariables>
-                        <sauce.user>rossco_9_9</sauce.user>
-                        <access.key>44f0744c-1689-4418-af63-560303cbb37b</access.key>
+                        <sauce.user>mayur_softcrylic</sauce.user>
+                        <access.key>1034911c-db71-4c8e-8e12-7831abf6adf7</access.key>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
